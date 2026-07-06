@@ -1,0 +1,11 @@
+*.slo
+*.lo
+*.o
+*.obj
+
+*.out
+*.exe
+*.app
+
+.vscode/
+.vs/
