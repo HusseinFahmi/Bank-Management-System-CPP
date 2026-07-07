@@ -3,8 +3,8 @@
 #include <iostream>
 #include <iomanip>
 
-#include "Screen.h"
-#include "Domain/BankClient.h"
+#include "../Screen.h"
+#include "../../Domain/BankClient.h"
 
 class ClientScreenBase: protected Screen{
     protected:
