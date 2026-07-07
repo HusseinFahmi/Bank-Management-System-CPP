@@ -11,10 +11,10 @@
 
 using namespace std;
 
-class ClientREpository{
+class ClientRepository{
     private:
         static const string _clientsFilePath() {
-            return "Data/Clients.txt";
+            return "../Data/Clients.txt";
         }
 
         static BankClient _convertLineToClientObject(const string line){
@@ -86,7 +86,7 @@ class ClientREpository{
                 fstream file;
                 file.open(_clientsFilePath(), ios::in);
 
-                if(!file.is_open()) return;
+                if(!file.is_open()) return {};
 
                 string line;
 
@@ -106,7 +106,7 @@ class ClientREpository{
                 fstream file;
                 file.open(_clientsFilePath() , ios::in);
 
-                if(!file.is_open()) return;
+                if(!file.is_open()) return BankClient::getEmptyObject();
 
                 string line;
 
