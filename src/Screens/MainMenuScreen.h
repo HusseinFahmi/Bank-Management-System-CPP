@@ -86,6 +86,9 @@ class MainMenuScreen : protected Screen{
             
                 case _enMainMenuOptions::eLogout:
                 return false;
+
+
+                return false;
             }
         }
 
