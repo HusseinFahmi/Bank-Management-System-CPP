@@ -187,7 +187,6 @@ class Util{
 
         static void wait(){
             std::cout << "\nPress Enter to continue...";
-            clearInputBuffer();
             std::cin.get();
         }
 
