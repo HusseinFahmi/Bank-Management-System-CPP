@@ -4,7 +4,7 @@
 
 class BankClient : public Person {
     public:
-        enum Mode { EmptyMode = 1 , UpdateMode = 2 , AddNewMode = 2};
+        enum Mode { EmptyMode = 1 , UpdateMode = 2 , AddNewMode = 3};
         enum TransactionResult { Ok = 1 , InvalidAmount = 2, InsufficientFunds = 3 };
     
     private:
