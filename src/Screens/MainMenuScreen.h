@@ -9,6 +9,7 @@
 #include "../Lib/InputValidator.h"
 #include "../Lib/Util.h"
 #include "Client/FindClientScreen.h"
+#include "Client/ClientListScreen.h"
 
 using namespace std;
 
@@ -36,7 +37,9 @@ class MainMenuScreen : protected Screen{
             eLogout = 8,
         };
 
-        static void _showClientListScreen(){}
+        static void _showClientListScreen(){
+            ClientListScreen::showClientList();
+        }
 
         static void _addNewClientScreen(){}
         
