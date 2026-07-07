@@ -21,7 +21,7 @@ class ClientREpository{
             string delim = "#//#";
             vector<string> fields = String::split(line,delim);
 
-            if(fields.size() < 7) return BankClient::getEmptyMode();
+            if(fields.size() < 7) return BankClient::getEmptyObject();
 
             return BankClient(fields[0], fields[1], fields[2], fields[3], BankClient::Mode::UpdateMode, fields[4], fields[5], stod(fields[6]));
         }
@@ -122,7 +122,7 @@ class ClientREpository{
                     }
                 }
                 file.close();
-                return BankClient::getEmptyMode();
+                return BankClient::getEmptyObject();
             }
 
             static bool isExist(const string& accountID){
@@ -162,7 +162,7 @@ class ClientREpository{
                 }
 
                 _saveAllClientsToFile(clietns);
-                client = BankClient::getEmptyMode();
+                client = BankClient::getEmptyObject();
                 return true;
             }
 

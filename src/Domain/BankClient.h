@@ -81,7 +81,7 @@ class BankClient : public Person {
             return _mode == Mode::EmptyMode;
         }
 
-        static BankClient getEmptyMode(){
+        static BankClient getEmptyObject(){
             return BankClient();
         }
 
