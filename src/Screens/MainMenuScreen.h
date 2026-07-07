@@ -8,6 +8,7 @@
 
 #include "../Lib/InputValidator.h"
 #include "../Lib/Util.h"
+#include "Client/FindClientScreen.h"
 
 using namespace std;
 
@@ -41,7 +42,11 @@ class MainMenuScreen : protected Screen{
         
         static void _deleteClientScreen(){}
         static void _updateClientScreen(){}
-        static void _findClientScreen(){}
+
+        static void _findClientScreen(){
+            FindClientScreen::showFindClientScreen();
+        }
+
         static void _transactionsScreen(){}
         static void _manageUsersScreen(){}
 
