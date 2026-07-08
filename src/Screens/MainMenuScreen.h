@@ -12,6 +12,8 @@
 #include "Client/ClientListScreen.h"
 #include "Client/AddNewClientScreen.h"
 #include "Client/UpdateClientScreen.h"
+#include "Client/DeleteClientScreen.h"
+
 
 using namespace std;
 
@@ -47,7 +49,9 @@ class MainMenuScreen : protected Screen{
             AddNewClientScreen::showAddClientScreen();
         }
         
-        static void _deleteClientScreen(){}
+        static void _deleteClientScreen(){
+            DeleteClientScreen::showDeleteClientScreen();
+        }
         
         static void _updateClientScreen(){
             UpdateClientScreen::showUpdateClientScreen();
