@@ -13,7 +13,7 @@ class FindClientScreen: protected ClientScreenBase{
             BankClient client = ClientRepository::find(accountID);
 
             if(client.isEmptyMode()){
-                cout << "Client with Id " << accountID << " not found\n";
+                cout << "Client with Id (" << accountID << ") not found\n";
                 return;
             }
 
