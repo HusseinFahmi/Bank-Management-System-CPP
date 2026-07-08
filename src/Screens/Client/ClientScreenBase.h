@@ -5,6 +5,7 @@
 
 #include "../Screen.h"
 #include "../../Domain/BankClient.h"
+#include "../../Lib/InputValidator.h"
 
 class ClientScreenBase: protected Screen{
     protected:
@@ -31,6 +32,15 @@ class ClientScreenBase: protected Screen{
 
             _printClientRecordLine(client);
             cout << "\n_____________________________________________________________________________________________________________________________________\n";
+        }
+
+        static void _readClientInfo(BankClient &client) {
+            client.setFirstName(inputValidator::get_string("Enter first name: "));
+            client.setLastName(inputValidator::get_string("Enter last name: "));
+            client.setEmail(inputValidator::get_string("Enter email: "));
+            client.setPhone(inputValidator::get_string("Enter phone number: "));
+            client.setPinCode(inputValidator::get_string("Enter pin code: "));
+            client.setAccountBalance(inputValidator::get_float("Enter account balance: "));
         }
         
 
