@@ -9,24 +9,6 @@
 
 
 class DepositScreen: protected TransactionBaseScreen{
-
-    private:
-        static double _requestAmount(){
-            double amount;
-
-            do
-            {
-                amount = inputValidator::get_double("Please enter deposit amount: ");
-
-                if (amount <= 0)
-                    cout << "Deposit amount must be greater than zero\n";
-            } while (amount <= 0);
-
-            return amount;
-        }
-
-        
-
     public:
         static void showDepositScreen(){
             _drawScreenHeader("\t Deposit Screen");
