@@ -166,6 +166,18 @@ class ClientRepository{
                 return true;
             }
 
+            static double getTotalBalances(){
+                vector<BankClient> clients = getAllClients();
+
+                double totalBalances = 0;
+
+                for(BankClient &c: clients){
+                    totalBalances += c.getAccountBalance();
+                }
+
+                return totalBalances;
+            }
+
 
 
 };
