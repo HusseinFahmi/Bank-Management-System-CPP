@@ -14,6 +14,8 @@
 #include "Client/UpdateClientScreen.h"
 #include "Client/DeleteClientScreen.h"
 
+#include "Transactions/TransactionsMenuScreen.h"
+
 
 using namespace std;
 
@@ -61,7 +63,10 @@ class MainMenuScreen : protected Screen{
             FindClientScreen::showFindClientScreen();
         }
 
-        static void _transactionsScreen(){}
+        static void _transactionsScreen(){
+            TransactionsMenuScreen::showTransactionScreen();
+        }
+
         static void _manageUsersScreen(){}
 
         static bool _performMainMenuOption(_enMainMenuOptions option){
