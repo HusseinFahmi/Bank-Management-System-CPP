@@ -6,6 +6,8 @@
 #include "../../Repository/ClientRepository.h"
 
 #include "DepositScreen.h"
+#include "WithdrawScreen.h"
+
 
 
 class TransactionsMenuScreen : protected Screen{
@@ -28,7 +30,10 @@ class TransactionsMenuScreen : protected Screen{
             DepositScreen::showDepositScreen();
         }
 
-        static void _withdrawScreen(){}
+        static void _withdrawScreen(){
+            WithdrawScreen::showWithdrawScreen();
+        }
+
         static void _totalBalancesScreen(){}
 
         static void _mainMenuScreen(){}
