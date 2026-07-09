@@ -7,7 +7,7 @@
 
 #include "DepositScreen.h"
 #include "WithdrawScreen.h"
-
+#include "TotalBalancesScreen.h"
 
 
 class TransactionsMenuScreen : protected Screen{
@@ -34,7 +34,9 @@ class TransactionsMenuScreen : protected Screen{
             WithdrawScreen::showWithdrawScreen();
         }
 
-        static void _totalBalancesScreen(){}
+        static void _totalBalancesScreen(){
+            TotalBalancesScreen::showTotalBalancesScreen();
+        }
 
         static void _mainMenuScreen(){}
 
