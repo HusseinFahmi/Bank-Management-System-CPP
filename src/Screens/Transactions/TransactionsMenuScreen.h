@@ -5,6 +5,8 @@
 #include "../../Domain/BankClient.h"
 #include "../../Repository/ClientRepository.h"
 
+#include "DepositScreen.h"
+
 
 class TransactionsMenuScreen : protected Screen{
     private:
@@ -23,8 +25,9 @@ class TransactionsMenuScreen : protected Screen{
         };
     
         static void _depositScreen(){
-
+            DepositScreen::showDepositScreen();
         }
+
         static void _withdrawScreen(){}
         static void _totalBalancesScreen(){}
 
@@ -52,6 +55,9 @@ class TransactionsMenuScreen : protected Screen{
             }
                 return false;
         }
+
+    protected:
+        
 
 
     public:
