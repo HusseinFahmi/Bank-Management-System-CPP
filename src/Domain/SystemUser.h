@@ -1,7 +1,7 @@
 #include "Person.h"
 
 
-class User: public Person{
+class SystemUser: public Person{
 
     public:
         enum Mode{EmptyMode = 1 , UpdateMode = 2 , AddNewMode = 3};
@@ -15,9 +15,9 @@ class User: public Person{
     
     public:
 
-        User():Person(),_mode(Mode::EmptyMode),_userName(""),_password(""),_permissions(0){}
+        SystemUser():Person(),_mode(Mode::EmptyMode),_userName(""),_password(""),_permissions(0){}
 
-        User(string firstName , string lastName , string email , string phone , Mode mode , string userName , string password , int permissions):
+        SystemUser(string firstName , string lastName , string email , string phone , Mode mode , string userName , string password , int permissions):
         Person(firstName,lastName,email,phone),
         _mode(mode),
         _userName(userName),
@@ -68,11 +68,11 @@ class User: public Person{
             return _mode == Mode::EmptyMode;
         }
 
-        static User getEmptyObject(){
-            return User();
+        static SystemUser getEmptyObject(){
+            return SystemUser();
         }
 
-        static User create(const string userName){
-            return User("","","","",Mode::AddNewMode,userName,"",0);
+        static SystemUser create(const string userName){
+            return SystemUser("","","","",Mode::AddNewMode,userName,"",0);
         }
 };
