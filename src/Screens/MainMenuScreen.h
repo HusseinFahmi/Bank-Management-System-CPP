@@ -16,6 +16,9 @@
 
 #include "Transactions/TransactionsMenuScreen.h"
 
+#include "User/UsersMenuScreen.h"
+
+
 
 using namespace std;
 
@@ -67,7 +70,9 @@ class MainMenuScreen : protected Screen{
             TransactionsMenuScreen::showTransactionScreen();
         }
 
-        static void _manageUsersScreen(){}
+        static void _manageUsersScreen(){
+            UsersMenuScreen::showUserScreen();
+        }
 
         static bool _performMainMenuOption(_enMainMenuOptions option){
 
