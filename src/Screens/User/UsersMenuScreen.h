@@ -8,6 +8,8 @@
 #include "../../Lib/Util.h"
 #include "../../Lib/InputValidator.h"
 
+#include "UsersListScreen.h"
+
 
 
 class UsersMenuScreen: protected Screen{
@@ -30,13 +32,19 @@ class UsersMenuScreen: protected Screen{
             eMainMenue = 6,
         };
 
-        static void _showUsersListScreen(){}
+        static void _showUsersListScreen(){
+            UserListScreen::showUserListScreen();
+        }
+
         static void _showAddNewUserScreen(){Util::wait();}
         static void _showDeleteUserScreen(){Util::wait();}
         static void _showUpdateUserScreen(){Util::wait();}
         static void _showFindUserScreen(){Util::wait();}
 
         static bool _performUsersMenuOption(_enUsersMenuOptions option){
+            Util::clearInputBuffer();
+            Util::clearScreen();
+            
             switch (option){
                 case _enUsersMenuOptions::eListUsers:
                     _showUsersListScreen();
