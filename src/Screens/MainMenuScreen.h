@@ -114,6 +114,7 @@ class MainMenuScreen : protected Screen{
 
                 return false;
             }
+            return false;
         }
 
     public:

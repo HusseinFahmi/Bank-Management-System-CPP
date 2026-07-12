@@ -147,6 +147,7 @@ class ClientRepository{
 
                     return false;
                 }
+                return false;
             }
 
             static bool deleteClient(BankClient& client){
