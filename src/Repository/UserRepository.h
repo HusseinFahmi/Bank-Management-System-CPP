@@ -69,6 +69,19 @@ class UserRepository{
             return true;
         }
 
+        static bool _update(SystemUser& user){
+            vector<SystemUser> users = getAllUsers();
+
+            for(SystemUser& u: users){
+                if(u.getUserName() == user.getUserName()){
+                    u = user;
+                    break;
+                }
+            }
+            _saveAllUsersToFile(users);
+            return true;
+        }
+
     public:
         static vector<SystemUser> getAllUsers(){
 
@@ -127,6 +140,10 @@ class UserRepository{
 
                 case SystemUser::Mode::DeleteMode:
                     _delete(user);
+                return true;
+
+                case SystemUser::Mode::UpdateMode:
+                    _update(user);
                 return true;
             
             default:

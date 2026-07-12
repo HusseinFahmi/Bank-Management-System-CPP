@@ -11,6 +11,8 @@
 #include "UsersListScreen.h"
 #include "AddNewUserScreen.h"
 #include "DeleteUserScreen.h"
+#include "UpdateUserScreen.h"
+
 
 
 class UsersMenuScreen: protected Screen{
@@ -45,7 +47,10 @@ class UsersMenuScreen: protected Screen{
             DeleteUserScreen::showDeleteUserScreen();
         }
 
-        static void _showUpdateUserScreen(){Util::wait();}
+        static void _showUpdateUserScreen(){
+            UpdateUserScreen::showUpdateUserScreen();
+        }
+
         static void _showFindUserScreen(){Util::wait();}
 
         static bool _performUsersMenuOption(_enUsersMenuOptions option){
