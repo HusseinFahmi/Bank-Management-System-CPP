@@ -10,6 +10,7 @@
 
 #include "UsersListScreen.h"
 #include "AddNewUserScreen.h"
+#include "DeleteUserScreen.h"
 
 
 class UsersMenuScreen: protected Screen{
@@ -40,7 +41,10 @@ class UsersMenuScreen: protected Screen{
             AddNewUserScreen::showAddNewUserScreen();
         }
 
-        static void _showDeleteUserScreen(){Util::wait();}
+        static void _showDeleteUserScreen(){
+            DeleteUserScreen::showDeleteUserScreen();
+        }
+
         static void _showUpdateUserScreen(){Util::wait();}
         static void _showFindUserScreen(){Util::wait();}
 
