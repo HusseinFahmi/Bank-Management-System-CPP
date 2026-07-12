@@ -31,5 +31,21 @@ class UserBaseScreen: protected Screen{
 
             _printUserRecordLine(user);
             cout << "\n_____________________________________________________________________________________________________________________________________\n";
-        }        
+        }       
+        
+        static void _readUserInfo(SystemUser& user){
+            user.setFirstName(inputValidator::get_string("Enter first name: "));
+            user.setLastName(inputValidator::get_string("Enter last name: "));
+            user.setEmail(inputValidator::get_string("Enter email: "));
+            user.setPhone(inputValidator::get_string("Enter phone number: "));
+            user.setPassword(inputValidator::get_string("Enter password: "));
+            user.setpermissions(inputValidator::get_int("Enter permission: "));
+        }
+
+        static void _printResult(bool isSuccess, const string& entity, const string& action){            
+            string successMessage = "\n" + entity + " " + action + " Successfully.\n";
+            string failMessage = "\nError: " + entity + " was NOT " + action + "!\n";
+            
+            isSuccess ? cout << successMessage : cout << failMessage;
+        }
 };

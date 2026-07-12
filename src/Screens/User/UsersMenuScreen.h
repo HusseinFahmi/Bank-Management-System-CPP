@@ -9,7 +9,7 @@
 #include "../../Lib/InputValidator.h"
 
 #include "UsersListScreen.h"
-
+#include "AddNewUserScreen.h"
 
 
 class UsersMenuScreen: protected Screen{
@@ -36,7 +36,10 @@ class UsersMenuScreen: protected Screen{
             UserListScreen::showUserListScreen();
         }
 
-        static void _showAddNewUserScreen(){Util::wait();}
+        static void _showAddNewUserScreen(){
+            AddNewUserScreen::showAddNewUserScreen();
+        }
+
         static void _showDeleteUserScreen(){Util::wait();}
         static void _showUpdateUserScreen(){Util::wait();}
         static void _showFindUserScreen(){Util::wait();}
