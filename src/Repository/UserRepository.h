@@ -41,6 +41,34 @@ class UserRepository{
             return true;
         }
 
+        static void _saveAllUsersToFile(vector<SystemUser>& users){
+            fstream file;
+            file.open(_usersFilePath(),ios::out);
+
+            if(!file.is_open()) return;
+
+            for(SystemUser &u : users){
+                if(!u.isMarkedForDelete()){
+                    file << _convertUserObjectToLine(u) << "\n";
+                }
+            }
+            file.close();
+        }
+
+        static bool _delete(SystemUser& user){
+            vector<SystemUser> users = getAllUsers();
+
+            for(SystemUser& u: users){
+                if(u.getUserName() == user.getUserName()){
+                    u.setMarkForDelete(true);
+                    break;
+                }
+            }
+            _saveAllUsersToFile(users);
+            user = SystemUser::getEmptyObject();
+            return true;
+        }
+
     public:
         static vector<SystemUser> getAllUsers(){
 
@@ -95,6 +123,10 @@ class UserRepository{
 
                 case SystemUser::Mode::AddNewMode:
                     _add(user);
+                return true;
+
+                case SystemUser::Mode::DeleteMode:
+                    _delete(user);
                 return true;
             
             default:

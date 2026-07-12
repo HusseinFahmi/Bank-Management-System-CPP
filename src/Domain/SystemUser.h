@@ -6,7 +6,7 @@
 class SystemUser: public Person{
 
     public:
-        enum Mode{EmptyMode = 1 , UpdateMode = 2 , AddNewMode = 3};
+        enum Mode{EmptyMode = 1 , UpdateMode = 2 , AddNewMode = 3 , DeleteMode = 4};
 
     private:
         Mode _mode;
