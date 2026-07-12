@@ -12,8 +12,7 @@
 #include "AddNewUserScreen.h"
 #include "DeleteUserScreen.h"
 #include "UpdateUserScreen.h"
-
-
+#include "FindUserScreen.h"
 
 class UsersMenuScreen: protected Screen{
     private:
@@ -51,7 +50,9 @@ class UsersMenuScreen: protected Screen{
             UpdateUserScreen::showUpdateUserScreen();
         }
 
-        static void _showFindUserScreen(){Util::wait();}
+        static void _showFindUserScreen(){
+            FindUserScreen::showFindUserScreen();
+        }
 
         static bool _performUsersMenuOption(_enUsersMenuOptions option){
             Util::clearInputBuffer();
