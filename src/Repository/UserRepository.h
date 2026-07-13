@@ -129,6 +129,31 @@ class UserRepository{
             return SystemUser::getEmptyObject();
         }
 
+        static SystemUser find(const string& userName , const string& password){
+            fstream file;
+
+            file.open(_usersFilePath(),ios::in);
+
+            if(!file.is_open()) return SystemUser::getEmptyObject();
+
+            string line;
+
+            while(getline(file,line)){
+                if(!line.empty()){
+                    SystemUser user = _convertLineToUserObject(line);
+
+                    if(user.getUserName() == userName && user.getPassword() == password){
+                        file.close();
+                        return user;
+                    }
+                }
+            }
+
+
+            file.close();
+            return SystemUser::getEmptyObject();
+        }
+
         static bool save(SystemUser& user){
             switch (user.getMode()){
                 case SystemUser::Mode::EmptyMode:

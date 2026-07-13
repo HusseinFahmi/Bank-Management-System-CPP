@@ -11,6 +11,8 @@
 class DeleteClientScreen: protected ClientScreenBase{
     public:
         static void showDeleteClientScreen(){
+            if(!checkPermission(SystemUser::deletePermission)) return;
+
             _drawScreenHeader("\t Delete Client Screen");
 
             string accountID = inputValidator::get_string("Enter client acount number: ");

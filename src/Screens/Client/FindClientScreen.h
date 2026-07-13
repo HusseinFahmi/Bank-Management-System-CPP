@@ -6,6 +6,9 @@
 class FindClientScreen: protected ClientScreenBase{
     public:
         static void showFindClientScreen(){
+            
+            if(!checkPermission(SystemUser::findPermission)) return;
+
             _drawScreenHeader("\t Find Client Screen");
 
             string accountID = inputValidator::get_string("Enter account ID: ");
