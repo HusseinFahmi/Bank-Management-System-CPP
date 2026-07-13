@@ -8,6 +8,40 @@
 #include <iomanip>
 
 class UserBaseScreen: protected Screen{
+    private:
+        static int _getPermission(){
+            int permission = 0;
+            char choice = 'n';
+
+            choice = inputValidator::get_char("\nDo you want to give full access <y,n>: ", 'y', 'n');
+            if (choice == 'y') return -1;
+
+            cout << "Do you want to give access to: \n";
+
+            choice = inputValidator::get_char("show client list <y,n>: ", 'y', 'n');
+            if (choice == 'y') permission |= SystemUser::Permissions::readPermission;
+
+            choice = inputValidator::get_char("add new client <y,n>: ", 'y', 'n');
+            if (choice == 'y') permission |= SystemUser::Permissions::writePermission;;
+
+            choice = inputValidator::get_char("delete client <y,n>: ", 'y', 'n');
+            if (choice == 'y') permission |= SystemUser::Permissions::deletePermission;
+
+            choice = inputValidator::get_char("update client <y,n>: ", 'y', 'n');
+            if (choice == 'y') permission |= SystemUser::Permissions::updatePermission;
+
+            choice = inputValidator::get_char("find client <y,n>: ", 'y', 'n');
+            if (choice == 'y') permission |= SystemUser::Permissions::findPermission;
+
+            choice = inputValidator::get_char("manage Users <y,n>: ", 'y', 'n');
+            if (choice == 'y') permission |= SystemUser::Permissions::manageUsersPermission;
+
+            choice = inputValidator::get_char("transactions <y,n>: ", 'y', 'n');
+            if (choice == 'y') permission |= SystemUser::Permissions::transactionPermission;
+
+            return permission;
+        }
+
     protected:
         static void _printUserRecordLine(SystemUser user){
             cout << "| " << setw(30) << left << user.getFullName();
@@ -39,7 +73,7 @@ class UserBaseScreen: protected Screen{
             user.setEmail(inputValidator::get_string("Enter email: "));
             user.setPhone(inputValidator::get_string("Enter phone number: "));
             user.setPassword(inputValidator::get_string("Enter password: "));
-            user.setpermissions(inputValidator::get_int("Enter permission: "));
+            user.setpermissions(_getPermission());
         }
 
         static void _printResult(bool isSuccess, const string& entity, const string& action){            

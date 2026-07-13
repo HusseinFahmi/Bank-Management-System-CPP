@@ -1,7 +1,13 @@
 #include <iostream>
-#include "Screens/MainMenuScreen.h"
+#include "Screens/LoginScreen.h"
+
+SystemUser currentUser = SystemUser::getEmptyObject();
 
 int main() {
-    MainMenuScreen::showMainMenu();
+
+    while (true){
+        LoginScreen::showLoginScreen();
+    }
+    
     return 0;
 }

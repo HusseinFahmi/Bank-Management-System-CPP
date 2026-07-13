@@ -1,22 +1,22 @@
-#pragma once
-
-#include<iostream>
-#include<vector>
-#include<string>
-
 #include "Screen.h"
 
+#include "../Global.h"
 #include "../Lib/InputValidator.h"
 #include "../Lib/Util.h"
-#include "Client/FindClientScreen.h"
-#include "Client/ClientListScreen.h"
+
 #include "Client/AddNewClientScreen.h"
-#include "Client/UpdateClientScreen.h"
+#include "Client/ClientListScreen.h"
 #include "Client/DeleteClientScreen.h"
+#include "Client/FindClientScreen.h"
+#include "Client/UpdateClientScreen.h"
 
 #include "Transactions/TransactionsMenuScreen.h"
-
 #include "User/UsersMenuScreen.h"
+
+#include <iostream>
+#include <string>
+#include <vector>
+
 
 
 
@@ -109,9 +109,7 @@ class MainMenuScreen : protected Screen{
                 return true;
             
                 case _enMainMenuOptions::eLogout:
-                return false;
-
-
+                    currentUser = SystemUser::getEmptyObject();
                 return false;
             }
             return false;
