@@ -10,6 +10,8 @@
 class AddNewClientScreen: protected ClientScreenBase{
     public:
         static void showAddClientScreen(){
+            if(!checkPermission(SystemUser::writePermission)) return;
+            
             _drawScreenHeader("\t Add client Screen");
             string accountID;
 

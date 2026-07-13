@@ -69,6 +69,7 @@ class TransactionsMenuScreen : protected Screen{
 
     public:
         static void showTransactionScreen(){
+            if(!checkPermission(SystemUser::transactionPermission)) return;
 
             do{
                 Util::clearScreen();

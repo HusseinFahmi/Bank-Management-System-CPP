@@ -9,6 +9,8 @@
 class UpdateClientScreen: protected ClientScreenBase{
     public:
         static void showUpdateClientScreen(){
+            if(!checkPermission(SystemUser::updatePermission)) return;
+
             _drawScreenHeader("\t Update client Screen");
 
             string accountID;

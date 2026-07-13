@@ -32,7 +32,9 @@ class ClientListScreen : protected ClientScreenBase{
 
     public:
         static void showClientList()
-        {            
+        {       
+            if(!checkPermission(SystemUser::readPermission)) return;
+            
             vector<BankClient> clients = ClientRepository::getAllClients();
 
             const string title = "\t Client List Screen";

@@ -87,6 +87,7 @@ class UsersMenuScreen: protected Screen{
     
     public:
         static void showUserScreen(){
+            if(!checkPermission(SystemUser::manageUsersPermission)) return;
 
             do{
                 Util::clearScreen();

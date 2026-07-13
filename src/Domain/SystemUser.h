@@ -7,6 +7,7 @@ class SystemUser: public Person{
 
     public:
         enum Mode{EmptyMode = 1 , UpdateMode = 2 , AddNewMode = 3 , DeleteMode = 4};
+        enum Permissions {readPermission = 1, writePermission = 2, deletePermission = 4, updatePermission = 8, findPermission = 16, manageUsersPermission = 32, transactionPermission = 64, allPermissions = -1};
 
     private:
         Mode _mode;
