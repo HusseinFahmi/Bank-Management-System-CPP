@@ -2,6 +2,8 @@
 
 #include "../Global.h"
 
+#include "../Lib/Date.h"
+
 #include <iostream>
 #include <string>
 
@@ -16,12 +18,18 @@ class Screen {
 
     protected:
         static void _drawScreenHeader(string title, string subtitle = "") {
+            Date date;
+
             cout << "\n\t\t\t\t\t______________________________________";
-            cout << "\n\n\t\t\t\t\t  " << title;
+            cout << "\n\n\t\t\t\t\t   " << title;
             if (subtitle != "") {
                 cout << "\n\t\t\t\t\t  " << subtitle;
             }
             cout << "\n\t\t\t\t\t______________________________________\n\n";
+
+            cout << "\t\t\t\t\t Date:" << date.toString() << "\n";
+            if(!currentUser.isEmptyMode())
+            cout << "\t\t\t\t\t User: " << currentUser.getUserName() << "\n\n\n";
         }
 
         static bool checkPermission(int permission){
