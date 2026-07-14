@@ -6,7 +6,9 @@ SystemUser currentUser = SystemUser::getEmptyObject();
 int main() {
 
     while (true){
-        LoginScreen::showLoginScreen();
+        if(!LoginScreen::showLoginScreen()){
+            break;
+        }
     }
     
     return 0;

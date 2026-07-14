@@ -120,7 +120,7 @@ class MainMenuScreen : protected Screen{
 
                 do{
                     Util::clearScreen();
-                    _drawScreenHeader("Main Screen");
+                    _drawScreenHeader("\t Main Screen");
 
                     cout << "\t\t\t\t\t\t  ==================================================\n";
                     cout << "\t\t\t\t\t\t\t\t     Main Menu\t\t\t\t\n";
