@@ -11,32 +11,45 @@
 class LoginScreen: protected Screen{
 
     private:
-        static void _login(){
-            bool loginFailed = false;
+        static bool _login(){
+            short remainingAttempts = 3;
 
-            string userName,password;
+            while (remainingAttempts > 0)
+            {
+                string username = inputValidator::get_string("Username: ");
+                string password = inputValidator::get_string("Password: ");
 
-            do{
-                if(loginFailed){
-                    cout << "\nInvalid username or password\n";
+                currentUser = UserRepository::find(username, password);
+
+                if (!currentUser.isEmptyMode())
+                    return true;
+
+                --remainingAttempts;
+
+                cout << "\nInvalid username or password.\n";
+
+                if (remainingAttempts > 0){
+                    cout << "You have "
+                        << remainingAttempts
+                        << " login attempts remaining.\n\n";
                 }
+            }
 
-                userName = inputValidator::get_string("username: ");
-                password = inputValidator::get_string("password: ");
-
-                currentUser = UserRepository::find(userName,password);
-
-                loginFailed = currentUser.isEmptyMode();
-            }while(loginFailed);
-
-            MainMenuScreen::showMainMenu();
+            return false;
         }
 
     public:
-        static void showLoginScreen(){
+        static bool showLoginScreen(){
             Util::clearScreen();
             _drawScreenHeader("\t Login Screen");
 
-            _login();
+
+            bool loginSucceeded = _login();
+
+            if(loginSucceeded){
+                MainMenuScreen::showMainMenu();
+            }
+
+            return loginSucceeded;
         }
 };
