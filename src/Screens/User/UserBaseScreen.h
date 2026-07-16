@@ -39,6 +39,10 @@ class UserBaseScreen: protected Screen{
             choice = inputValidator::get_char("transactions <y,n>: ", 'y', 'n');
             if (choice == 'y') permission |= SystemUser::Permissions::transactionPermission;
 
+            choice = inputValidator::get_char("Login Register <y,n>: ", 'y', 'n');
+            if (choice == 'y') permission |= SystemUser::Permissions::ShowLoginRegister;
+
+
             return permission;
         }
 

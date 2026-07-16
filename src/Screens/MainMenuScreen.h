@@ -13,6 +13,8 @@
 #include "Transactions/TransactionsMenuScreen.h"
 #include "User/UsersMenuScreen.h"
 
+#include "LoginRegisterScreen.h"
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -32,6 +34,7 @@ class MainMenuScreen : protected Screen{
             "Find Client",
             "Transactions",
             "Manage Users",
+            "Login Register",
             "Logout",
         };
 
@@ -43,7 +46,8 @@ class MainMenuScreen : protected Screen{
             eFindClient = 5,
             eTransactions = 6,
             eManageUsers = 7,
-            eLogout = 8,
+            eLoginRegister = 8,
+            eLogout = 9,
         };
 
         static void _showClientListScreen(){
@@ -72,6 +76,10 @@ class MainMenuScreen : protected Screen{
 
         static void _manageUsersScreen(){
             UsersMenuScreen::showUserScreen();
+        }
+
+        static void _loginRegisterScree(){
+            LoginRegisterScreen::showLoginRegisterScreen();
         }
 
         static bool _performMainMenuOption(_enMainMenuOptions option){
@@ -106,6 +114,10 @@ class MainMenuScreen : protected Screen{
             
                 case _enMainMenuOptions::eManageUsers:
                     _manageUsersScreen();
+                return true;
+
+                case _enMainMenuOptions::eLoginRegister:
+                    _loginRegisterScree();
                 return true;
             
                 case _enMainMenuOptions::eLogout:
