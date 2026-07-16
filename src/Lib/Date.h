@@ -522,6 +522,20 @@ public:
         cout << toString() << endl;
     }
 
+    static string getSystemDateAndTime(){
+        Date date;
+        time_t t = time(0);
+        tm* now = localtime(&t); 
+
+        short hours , minutes , seconds;
+
+        hours = now->tm_hour;
+        minutes = now->tm_min;
+        seconds = now->tm_sec;
+
+        return date.toString() + " - " + to_string(hours) + ":" + to_string(minutes) + ":" + to_string(seconds);
+    }
+
     // ==========================================
     // --- Operator Overloading ---
     // ==========================================

@@ -7,6 +7,8 @@
 
 
 #include "../Repository/UserRepository.h"
+#include "../Repository/LoginRegisterRepository.h"
+
 
 class LoginScreen: protected Screen{
 
@@ -21,14 +23,20 @@ class LoginScreen: protected Screen{
 
                 currentUser = UserRepository::find(username, password);
 
-                if (!currentUser.isEmptyMode())
+                bool loginSucceeded = !currentUser.isEmptyMode();
+
+                LoginRegister log(Date::getSystemDateAndTime(), username, currentUser.getPermissions(), loginSucceeded ? LoginRegister::LoginStatus::Success : LoginRegister::LoginStatus::Failed);
+
+                LoginRegisterRepository::addLog(log);
+
+                if (loginSucceeded)
                     return true;
 
-                --remainingAttempts;
+                    --remainingAttempts;
 
-                cout << "\nInvalid username or password.\n";
+                    cout << "\nInvalid username or password.\n";
 
-                if (remainingAttempts > 0){
+                    if (remainingAttempts > 0){
                     cout << "You have "
                         << remainingAttempts
                         << " login attempts remaining.\n\n";
