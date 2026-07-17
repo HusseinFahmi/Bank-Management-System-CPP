@@ -17,12 +17,12 @@ class UserRepository{
 
             if(fields.size() < 7) return SystemUser::getEmptyObject();
 
-            return SystemUser(fields[0],fields[1],fields[2],fields[3],SystemUser::Mode::UpdateMode,fields[4],fields[5],stoi(fields[6]));
+            return SystemUser(fields[0],fields[1],fields[2],fields[3],SystemUser::Mode::UpdateMode,fields[4],Util::decryptText(fields[5],10),stoi(fields[6]));
         }
 
         static string _convertUserObjectToLine(SystemUser& user){
             const string delim = "#//#";
-            return user.getFirstName() + delim + user.getLastName() + delim + user.getEmail() + delim + user.getPhone() + delim + user.getUserName() + delim + user.getPassword() + delim + to_string(user.getPermissions());
+            return user.getFirstName() + delim + user.getLastName() + delim + user.getEmail() + delim + user.getPhone() + delim + user.getUserName() + delim + Util::encryptText(user.getPassword(),10) + delim + to_string(user.getPermissions());
         }
 
         static void _addLineToFile(string line){
