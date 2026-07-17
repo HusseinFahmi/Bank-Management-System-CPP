@@ -9,6 +9,8 @@
 #include "WithdrawScreen.h"
 #include "TotalBalancesScreen.h"
 
+#include "TransferScreen.h"
+#include "TransferListScreen.h"
 
 class TransactionsMenuScreen : protected Screen{
     private:
@@ -16,6 +18,8 @@ class TransactionsMenuScreen : protected Screen{
             "Deposit",
             "WithDraw",
             "Total Balances",
+            "Transfer",
+            "Transfer list",
             "Main Menu",
         };
 
@@ -23,7 +27,9 @@ class TransactionsMenuScreen : protected Screen{
             eDeposit = 1,
             eWithDraw = 2,
             eTotoalBalances = 3,
-            eMainMenu = 4,
+            eTransfer = 4,
+            eTransferList = 5,
+            eMainMenu = 6,
         };
     
         static void _depositScreen(){
@@ -36,6 +42,14 @@ class TransactionsMenuScreen : protected Screen{
 
         static void _totalBalancesScreen(){
             TotalBalancesScreen::showTotalBalancesScreen();
+        }
+
+        static void _transferScreen(){
+            TransferScreen::showTransferScreen();
+        }
+
+        static void _transferListScreen(){
+            TransferListScreen::TansferListScreen();
         }
 
         static void _mainMenuScreen(){}
@@ -55,6 +69,14 @@ class TransactionsMenuScreen : protected Screen{
 
                 case _enTransactionMenuOptions::eTotoalBalances:
                     _totalBalancesScreen();
+                return true;
+
+                case _enTransactionMenuOptions::eTransfer:
+                    _transferScreen();
+                return true;
+
+                case _enTransactionMenuOptions::eTransferList:
+                    _transferListScreen();
                 return true;
 
                 case _enTransactionMenuOptions::eMainMenu:
